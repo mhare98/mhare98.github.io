@@ -14,61 +14,58 @@
             <h1 id="site-brand">The Weather Site</h1>
         </header>
         <nav>
-            <ul>
-                <li><a href="/index.html">Home</a></li>
+            <ul id="navlist">
                 <li><a href="">Current</a></li>
                 <li><a href="">Search</a></li>
                 <li><a href="">Franklin</a></li>
                 <li><a href="">Greenville</a></li>
             </ul>
         </nav>
-        <h1 id="locName"><strong>Franklin, Idaho</strong></h1>
+        <h1 id="locname"><strong>Franklin, Idaho</strong></h1>
         <section id="locInfo">
-            <h2><strong>Zip:</strong> 83237 | <strong>Elevation:</strong> 1514.246 ft. | <strong>Location:</strong> 42.07&deg; N, 111.79&deg; W</h2>
+            <p id="locinfo"><strong>Zip:</strong> 83237 | <strong>Elevation:</strong> 1514.246 ft. | <strong>Location:</strong> 42.07&deg; N, 111.79&deg; W</p>
         </section>
         <div id="curWeather">
-            <section id="temps" class="title">
-                <h2>Temperature</h2>
-                <ul>
-                    <li>40&deg;F</li>
-                    <li>63&deg;F</li>
-                    <li>41&deg;F</li>
-                    <li>Feels like 40&deg;F</li>
-                </ul>
+            <section id="temps" class="tile">
+                <h2 id="temptitle">Temperature</h2>
+                    <p id="currtemp">40&deg;F</p>
+                    <p> <span id=high>63&deg;</span> 
+                        <span id="low">41&deg;F</span></p>
+                    <p id="feels">Feels like 40&deg;F</p>
             </section>
 
-            <section id="wind" class="title">
-                <h2>Wind</h2>
-                <img src="/weather/images/wind-pointer.png" alt="wind direction">
-                <ul>
-                    <li>5 mph</li>
-                    <li><strong>Direction:</strong> SW</li>
-                    <li><strong>Gusts:</strong> 10-15 mph</li>
-                </ul>
+            <section id="wind" class="tile">
+                <h2 id="windtitle">Wind</h2>
+                <div id="windpic">
+                    <img src="/weather/images/wind-pointer.png" alt="wind direction">
+                    <p id="strength">5 mph</p>
+                </div>
+                    <p id="direc"><strong>Direction:</strong> SW</p>
+                    <p id="gust"><strong>Gusts:</strong> 10-15 mph</p>
             </section>
 
-            <section id="summary" class="title">
+            <section id="summary" class="tile">
                 <h2>Rain</h2>
                 <img src="/weather/images/rain.jpg" alt="rain" id="status">
             </section>
         </div>
 
-        <section id="hourly">
+        <section id="hourly" class="tile">
             <h2>Hourly Forecast</h2>
-            <ul>
-                <li>10am: 41&deg;F</li>
-                <li>11am: 41&deg;F</li>
-                <li>12pm: 41&deg;F</li>
-                <li>1pm: 41&deg;F</li>
-                <li>2pm: 41&deg;F</li>
-                <li>3pm: 41&deg;F</li>
-                <li>4pm: 42&deg;F</li>
-                <li>5pm: 44&deg;F</li>
-                <li>6pm: 44&deg;F</li>
-                <li>7pm: 46&deg;F</li>
-                <li>8pm: 49&deg;F</li>
-                <li>9pm: 51&deg;F</li>
-                <li>10pm: 55&deg;F</li>
+            <ul id="hourlylist">
+                <li>10am: 41&deg;F |</li>
+                <li>11am: 41&deg;F |</li>
+                <li>12pm: 41&deg;F |</li>
+                <li>1pm: 41&deg;F |</li>
+                <li>2pm: 41&deg;F |</li>
+                <li>3pm: 41&deg;F |</li>
+                <li>4pm: 42&deg;F |</li>
+                <li>5pm: 44&deg;F |</li>
+                <li>6pm: 44&deg;F |</li>
+                <li>7pm: 46&deg;F |</li>
+                <li>8pm: 49&deg;F |</li>
+                <li>9pm: 51&deg;F |</li>
+                <li>10pm: 55&deg;F |</li>
             </ul>
         </section>
         <footer>
