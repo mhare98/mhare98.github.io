@@ -1,0 +1,48 @@
+/* Style sheet for weather_pics*/
+/*Mobile First - Small screens*/
+@media (max-width:500px)
+{
+    #clear_large_desc{
+        display: none;
+    }
+    
+    #clouds_large_desc{
+        display: none;
+    }
+    
+    #fog_large_desc{
+        display: none;
+    }
+
+    #rain_large_desc{
+        display: none;
+    }
+    #snow_large_desc{
+        display: none;
+    }
+}
+
+
+/*Large Screens*/
+
+@media (min-width:500px){
+    #clear_small_desc
+    {
+        display: none;
+    }
+
+    #clouds_small_desc{
+        display: none;
+    }
+
+    #fog_small_desc{
+        display: none;
+    }
+    
+    #rain_small_desc{
+        display: none;
+    }
+    #snow_small_desc{
+        display: none;
+    }
+}
