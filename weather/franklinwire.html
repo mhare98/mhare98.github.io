@@ -23,7 +23,7 @@
         </nav>
         <h1 id="locname"><strong>Franklin, Idaho</strong></h1>
         <section id="locInfo">
-            <p id="locinfo"><strong>Zip:</strong> 83237 | <strong>Elevation:</strong> 1514.246 ft. | <strong>Location:</strong> 42.07&deg; N, 111.79&deg; W</p>
+            <p id="locinfo"><strong>Zip:</strong> 83237 | <strong>Elevation:</strong> <span id="elevation"></span> ft. | <strong>Location:</strong> 42.07&deg; N, 111.79&deg; W</p>
         </section>
         <div id="curWeather">
             <section id="temps" class="tile">
@@ -31,13 +31,13 @@
                     <p id="currtemp">40&deg;F</p>
                     <p> <span id=high>63&deg;</span> 
                         <span id="low">41&deg;F</span></p>
-                    <p id="feels">Feels like 40&deg;F</p>
+                    <p id="feels">Feels like <span id="feelTemp">??</span>&deg;F</p>
             </section>
 
             <section id="wind" class="tile">
                 <h2 id="windtitle">Wind</h2>
-                <div id="windpic">
-                    <img src="/weather/images/wind-pointer.png" alt="wind direction">
+                <div id="windpiczone">
+                    <div id="windpic" class="nw"></div>
                     <p id="strength">5 mph</p>
                 </div>
                     <p id="direc"><strong>Direction:</strong> SW</p>
@@ -46,7 +46,7 @@
 
             <section id="summary" class="tile">
                 <h2>Rain</h2>
-                <img src="/weather/images/rain.jpg" alt="rain" id="status">
+                <div id="status" class="clear"></div>
             </section>
         </div>
 
@@ -71,6 +71,7 @@
         <footer>
             &copy; 2019 -- The Weather Site
         </footer>
+        <script src="/weather//js/functions.js"></script>
     </body>
 
 

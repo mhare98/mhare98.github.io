@@ -90,10 +90,6 @@ html {
       height: 50px;
   }
 
-  #status {
-      width: 200px;
-      height: 200px;
-  }
   #head {
     display: flex;
     width: 100%;
@@ -113,7 +109,7 @@ html {
   #currtemp{
     font-size: 5em;
     padding: 0px;
-    font-weight: 400s;
+    font-weight:300px;
     margin: 0px;
   }
   #high{
@@ -132,10 +128,43 @@ html {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    margin: 0px;
   }
-  
-  #windpic{
+  #windpiczone{
     position: relative;
+  }
+  #windpic{
+    height: 150px;
+    width:150px;
+    background: no-repeat center/85% url('/weather/images/wind-pointer.png');
+    z-index: 100;
+    margin: -.6em auto 0;
+    
+  }
+
+  .n{
+    transform: rotate(0deg);
+  }
+  .ne{
+    transform: rotate(45deg);
+  }
+  .e{
+    transform: rotate(90deg);
+  }
+  .se{
+    transform: rotate(135deg);
+  }
+  .s{
+    transform: rotate(180deg);
+  }
+  .sw{
+    transform: rotate(225deg);
+  }
+  .w{
+    transform: rotate(270deg);
+  }
+  .nw{
+    transform: rotate(315deg);
   }
 
   #direc{
@@ -145,8 +174,23 @@ html {
     margin:0px;
   }
   #status{
-    width: 250px;
+    width: 100%;
     height: 250px;
+  }
+  .clear{
+    background:  no-repeat center url(/weather/images/clear_small.jpg);
+  }
+  .snow{
+    background: no-repeat center url(/weather/images/snow_small.jpg);
+  }
+  .cloudy{
+    background: no-repeat center url(/weather/images/clouds_small.jpg);
+  }
+  .rain{
+    background: no-repeat center url(/weather/images/rain_small.jpg);
+  }
+  .fog{
+    background: no-repeat center url(/weather/images/fog_small.jpg);
   }
   #hourlylist{
     display: flex;
