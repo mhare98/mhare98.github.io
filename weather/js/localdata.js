@@ -116,7 +116,7 @@ function fetchData(weatherURL){
     // Set the hourly temperature information
     let forcasttemp = buildHourlyData(10, hourly);
     let hourlycontainer = document.getElementById("hourlylist");
-    hourlycontainer.innerHTML += forcasttemp; 
+    hourlycontainer.innerHTML = forcasttemp; 
 
     //set long lat
     let longlatcontainer = document.getElementById("longlat");
