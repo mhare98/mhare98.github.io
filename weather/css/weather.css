@@ -60,9 +60,13 @@ html {
     width: 100%;
   
   }
+  a {
+    color: white;
+    text-decoration: none;
+  }
   #navlist {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     margin: 15px;
     padding: 0px;
   }
@@ -109,7 +113,7 @@ html {
   #currtemp{
     font-size: 5em;
     padding: 0px;
-    font-weight:300px;
+    font-weight: 300;
     margin: 0px;
   }
   #high{
@@ -168,15 +172,33 @@ html {
   }
 
   #direc{
-    margin: 0px;
+    margin: 10px;
   }
   #gust{
-    margin:0px;
+    margin:10px;
   }
   #status{
     width: 100%;
     height: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
+  #hourlylist{
+    display: flex;
+    flex-flow: row nowrap;
+    overflow: auto;
+  }
+  #hourly ul li{
+    display: inline-block;
+    list-style: none;
+  }
+  #hourly li{
+    flex-shrink: 0;
+  }
+
+/*mobile*/
+
   .clear{
     background:  no-repeat center url(/weather/images/clear_small.jpg);
   }
@@ -192,19 +214,52 @@ html {
   .fog{
     background: no-repeat center url(/weather/images/fog_small.jpg);
   }
-  #hourlylist{
-    display: flex;
-    flex-flow: row nowrap;
-    overflow: auto;
-  }
-  #hourly ul li{
-    display: inline-block;
-    list-style: none;
-  }
-  #hourly li{
-    flex-shrink: 0;
+  .hide{
+    display: none;
   }
   
+/*Medium screens*/
+
+@media (min-width: 41.67em) {
+
+  nav{
+    display: inline-block;
+    position: relative;
+    background-color: #0e89D4;
+  }
+  #curWeather{
+    display: flex;
+  }
+  #temps{
+    margin: 0px;
+    width: 33%;
+  }
+  #locinfo{
+    font-size: .9em;
+  }
+  #wind{
+    margin: 0px;
+    width: 33%;
+  }
+  #summary{
+    margin: 0px;
+    width: 33%;
+  }
+  #currtemp{
+    margin: 30px;
+  }
+  #high{
+    font-size: 1.5em;
+  }
+  #low{
+    font-size: 1.5em;
+  }
+  #feels{
+    font-size: 1.3em;
+    font-weight: 500;
+  }
+  
+}
 
   
 
