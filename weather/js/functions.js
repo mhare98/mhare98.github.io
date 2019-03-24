@@ -17,6 +17,17 @@ convertMeters(1514.246);
 
 changeSummaryImage(fixedWeatherType);
 
+var idHeader = {
+    headers: {
+      "User-Agent": "Student Learning Project - har16064@byui.edu"
+    }
+  };
+
+
+let storage = window.localStorage;
+
+
+
 //Calculate Wind Chill
 function buildWC(speed, temp)
 {
@@ -91,6 +102,7 @@ function getCondition(weatherType)
         case "Raining":
         case "Rain":
         case "Thunderstorms":
+        case "Chance Rain Showers":
             output = "rain";
             break;
         case "Snowing":
@@ -180,3 +192,177 @@ function buildHourlyData(nextHour,hourlyTemps) {
      console.log('HourlyList is: ' +hourlyListItems);
      return hourlyListItems;
     }
+
+     // Gets location information from the NWS API
+function getLocation(locale) {
+    const URL = "https://api.weather.gov/points/" + locale; 
+    // NWS User-Agent header (built above) will be the second parameter 
+    fetch(URL, idHeader) 
+    .then(function(response){
+      if(response.ok){ 
+       return response.json(); 
+      } 
+      throw new ERROR('Response not OK.');
+    })
+    .then(function (data) { 
+      // Let's see what we got back
+      console.log('Json object from getLocation function:'); 
+      console.log(data);
+      // Store data to localstorage 
+      storage.setItem("locName", data.properties.relativeLocation.properties.city); 
+      storage.setItem("locState", data.properties.relativeLocation.properties.state); 
+   
+      // Next, get the weather station ID before requesting current conditions 
+      // URL for station list is in the data object 
+      let stationsURL = data.properties.observationStations;
+      getHourly(data.properties.forecastHourly);
+      getForecast(data.properties.forecast);
+      // Call the function to get the list of weather stations
+      getStationId(stationsURL); 
+     }) 
+    .catch(error => console.log('There was a getLocation error: ', error)) 
+   } // end getLocation function
+
+    // Gets weather station list and the nearest weather station ID from the NWS API
+function getStationId(stationsURL) 
+{ 
+    // NWS User-Agent header (built above) will be the second parameter 
+    fetch(stationsURL, idHeader) 
+    .then(function(response){
+      if(response.ok){ 
+       return response.json(); 
+      } 
+      throw new ERROR('Response not OK.');
+    })
+    .then(function (data) { 
+      // Let's see what we got back
+      console.log('From getStationId function:'); 
+      console.log(data);
+    
+      // Store station ID and elevation (in meters - will need to be converted to feet) 
+      let stationId = data.features[0].properties.stationIdentifier; 
+      let stationElevation = data.features[0].properties.elevation.value; 
+      console.log('Station and Elevation are: ' + stationId, stationElevation); 
+   
+      // Store data to localstorage 
+      storage.setItem("stationId", stationId); 
+      storage.setItem("stationElevation", stationElevation); 
+   
+      // Request the Current Weather for this station 
+      getWeather(stationId);
+     }) 
+    .catch(error => console.log('There was a getStationId error: ', error)) 
+   } // end getStationId function}
+
+// Gets current weather information for a specific weather station from the NWS API
+function getWeather(stationId) { 
+    // This is the URL for current observation data 
+    const URL = 'https://api.weather.gov/stations/' + stationId + '/observations/latest';
+    // NWS User-Agent header (built above) will be the second parameter 
+    fetch(URL, idHeader) 
+    .then(function(response){
+      if(response.ok){ 
+       return response.json(); 
+      } 
+      throw new ERROR('Response not OK.');
+    })
+    .then(function (data) { 
+      // Let's see what we got back
+      console.log('From getWeather function:'); 
+      console.log(data);
+    
+      // Store weather information to localStorage
+      //elevation
+      let elevation = data.properties.elevation.value; 
+      storage.setItem("elevation", elevation);
+      console.log("elevation: " + elevation);
+  
+      // Build the page for viewing 
+      
+     }) 
+    .catch(error => console.log('There was a getWeather error: ', error)) 
+   } // end getWeather function
+
+   //get data from the hourly API
+   function getHourly(url)
+   {
+       fetch(url, idHeader)
+       .then(function(response){
+        if(response.ok){ 
+            return response.json(); 
+           } 
+           throw new ERROR('Response not OK.');
+       })
+       .then(function (data) { 
+        console.log("From the getHourly function: ");
+        console.log(data);
+    
+        // Temp
+        let currtemp = data.properties.periods[0].temperature;
+        storage.setItem("currtemp", currtemp);
+        console.log("temp: " + currtemp);
+      // Store Hourly Information
+      let hourlytemp = [];
+
+      for (let i = 0; i < 13; i++) {
+        hourlytemp[i] = data.properties.periods[i].temperature;
+      }
+
+      storage.setItem("hourly", hourlytemp);
+
+      // Wind
+      let direc = data.properties.periods[0].windDirection;
+      storage.setItem("direc", direc);
+      console.log("direc: " + direc);
+      let speed = data.properties.periods[0].windSpeed.split(" ")[0];
+      storage.setItem("windspeed", speed);
+      console.log("Wind speed: " + speed);
+
+       })
+       .catch(error => console.log('There was a getHourly error: ', error))
+   }
+
+   //get data from forecast api
+   function getForecast(url)
+   {
+    fetch(url, idHeader)
+    .then(function(response){
+     if(response.ok){ 
+         return response.json(); 
+        } 
+        throw new ERROR('Response not OK.');
+    })
+    .then(function (data) { 
+     console.log("From the getForecast function: ");
+     console.log(data);
+ 
+     // Gusts
+     let gusts = data.properties.periods[0].windSpeed;
+     storage.setItem("gusts", gusts);
+     console.log("Gusts: " + gusts);
+
+     // High Temp
+     let high = data.properties.periods[0].temperature;
+     storage.setItem("high", high);
+     console.log("high: " + high);
+
+     // Low Temp
+     let low = data.properties.periods[1].temperature;
+     storage.setItem("low", low);
+     console.log("Low: " + low);
+
+     // Summary conditions
+     let shortSum = data.properties.periods[0].shortForecast;
+     storage.setItem("summaryshort", shortSum);
+     console.log(shortSum);
+
+     storage.setItem(
+       "summary",
+       data.properties.periods[0].detailedForecast
+     );
+    })
+    .catch(error => console.log('There was a getForecast error: ', error))
+   }
+
+
+    
