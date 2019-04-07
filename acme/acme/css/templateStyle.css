@@ -1,0 +1,55 @@
+/* ******************************
+*  Stylesheet for Screened Devices
+*  Created by: Matt Hare
+*
+*  1.  General Styles (for all pages and devices)
+*
+*  2.  Mobile First (styles specific to small screens)
+*
+*  3.  Large Screen Styles (Media Queries begin here)
+*
+* ****************************** */
+html{
+    background: url(/acme/acme/images/site/background.jpg) center center fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+body{
+    background-color: #ffffff;
+    width: 95%;
+    background-size: 100%;
+    margin: auto;
+}
+nav, ul, li{
+    background-color: #de2226;
+    display: inline-block;
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+}
+
+#nav{
+    display: flex;
+    justify-content: space-around;
+    padding: 0px;
+}
+footer{
+    text-align: center;
+}
+hr{
+    width: 97%;
+    height: 2px;
+    background-color: black;
+}
+#content{
+    padding: 10px;
+}
+#title{
+    margin: 0px;
+    font-weight: 1200;
+    font-size: 50px;
+}
+

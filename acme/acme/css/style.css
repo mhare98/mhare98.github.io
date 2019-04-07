@@ -1,0 +1,190 @@
+/* ******************************
+*  Stylesheet for Screened Devices
+*  Created by: Matt Hare
+*
+*  1.  General Styles (for all pages and devices)
+*
+*  2.  Mobile First (styles specific to small screens)
+*
+*  3.  Large Screen Styles (Media Queries begin here)
+*
+* ****************************** */
+html{
+    background: url(/acme/acme/images/site/background.jpg) center center fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+body{
+    background-color: #ffffff;
+    width: 95%;
+    background-size: 100%;
+    margin: auto;
+}
+#nav, #navList, .navs{
+    background-color: #de2226;
+    display: inline-block;
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+}
+
+#navList{
+    display: flex;
+    justify-content: space-around;
+    padding: 0px;
+}
+footer{
+    text-align: center;
+    font-size: 10px;
+}
+hr{
+    width: 97%;
+    height: 2px;
+    background-color: black;
+}
+#home{
+    width: 100%;
+}
+#content{
+    padding: 10px;
+}
+#homeTitle{
+    margin: 0px;
+    font-size: 30px;
+}
+#reviewHead{
+    margin: 5px;
+}
+#recipes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 70%;
+    margin: 3px;
+}
+#recipeHead{
+    margin: 10px;
+}
+.recipe{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.recipePic{
+    width: 60px;
+}
+.recipePicSec{
+    background-color: #808080;
+    width: 120px;
+}
+.hide{
+    display: none;
+}
+#contentTitle{
+    font-size: 30px;
+    margin: 5px;
+}
+#price{
+    color: #de2226;
+    font-size: 35px;
+}
+#contentDesc{
+    font-size: 18px;
+}
+#contentRev{
+    font-size: 18px;
+}
+
+/* Mobile styles */
+#rocket{
+    background-image: url(/acme/acme/images/site/feature.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 170px;
+    width: 100%;
+}
+#rocketInfo{
+    float: right;
+    height: 80%;
+    color:#990033;
+}
+#rocketTitle{
+    margin: 0px;
+}
+#rocketPar{
+    margin: 0px;
+    font-size: 13px;
+}
+#rocketWant{
+    margin: 10px;
+    width: 170px;
+    height: 50px;
+}
+#reviewList{
+    font-size: 14px;
+}
+#contentImg{
+    width: 250px;
+    height: auto;
+}
+
+@media (min-width:500px){
+    #rocket{
+        background-image: url(/acme/acme/images/site/feature.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 340px;
+        width: 100%;
+    }
+    #rocketInfo{
+        float: right;
+        height: 80%;
+        color:#990033;
+        margin: 40px;
+    }
+    #rocketTitle{
+        margin: 0px;
+        font-size: 35px;
+    }
+    #rocketPar{
+        margin: 0px;
+        font-size: 20px;
+    }
+    #rocketWant{
+        width: 270px;
+        height: 70px;
+
+    }
+    #lowerHalf{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-around;
+        width: 100%;
+    }
+    #reviewList{
+        font-size: 18px;
+    }
+    #recipeBlock{
+        width: 45%;
+    }
+    #contents{
+        display: flex;
+        justify-content: space-around;
+    }
+    #contentInfo{
+        width: 40%;
+    }
+    #contentImg{
+        width: 45%;
+    }
+    /*Large screens*/
+    @media (min-width:1000px){
+        body{
+            width: 70%;
+        }
+    }
+
+}
