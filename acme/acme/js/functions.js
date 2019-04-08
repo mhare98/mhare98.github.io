@@ -36,6 +36,7 @@ function buildHome()
   console.log("HOME PAGE");
   document.getElementById("homeSec").setAttribute("class", "");
   document.getElementById("content").setAttribute("class", "hide");
+  document.getElementById("title").innerHTML = "ACME shop"
 }
 
 function buildContent(input)
@@ -62,6 +63,7 @@ function buildContent(input)
   .then(function(data){
 
     let sec = Object.keys(data)[input];
+    document.getElementById("title").innerHTML = data[sec]["name"];
     title.innerHTML = data[sec]["name"];
     par.innerHTML = data[sec]["description"];
     rev.innerHTML = data[sec]["reviews"];
