@@ -10,7 +10,7 @@
 *
 * ****************************** */
 html{
-    background: url(/acme/acme/images/site/background.jpg) center center fixed;
+    background: url(/acme/images/site/background.jpg) center center fixed;
     background-repeat: no-repeat;
     background-size: cover;
     
@@ -47,9 +47,8 @@ hr{
 #content{
     padding: 10px;
 }
-#title{
+#homeTitle{
     margin: 0px;
-    font-weight: 1200;
-    font-size: 50px;
+    font-size: 30px;
 }
 

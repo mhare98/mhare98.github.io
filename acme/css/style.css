@@ -10,7 +10,7 @@
 *
 * ****************************** */
 html{
-    background: url(/acme/acme/images/site/background.jpg) center center fixed;
+    background: url(/acme/images/site/background.jpg) center center fixed;
     background-repeat: no-repeat;
     background-size: cover;
     
@@ -100,7 +100,7 @@ hr{
 
 /* Mobile styles */
 #rocket{
-    background-image: url(/acme/acme/images/site/feature.jpg);
+    background-image: url(/acme/images/site/feature.jpg);
     background-repeat: no-repeat;
     background-size: contain;
     height: 170px;
@@ -133,7 +133,7 @@ hr{
 
 @media (min-width:500px){
     #rocket{
-        background-image: url(/acme/acme/images/site/feature.jpg);
+        background-image: url(/acme/images/site/feature.jpg);
         background-repeat: no-repeat;
         background-size: cover;
         height: 340px;

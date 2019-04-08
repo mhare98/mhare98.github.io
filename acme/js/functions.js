@@ -8,7 +8,7 @@ function buildNav()
     const decoyCont = document.getElementById("decoy");
     const trapCont = document.getElementById("trap");
 
-    let url = "/acme/acme/js/acme.json";
+    let url = "/acme/js/acme.json";
     
     fetch(url)
   .then(function(response) {
@@ -51,7 +51,7 @@ function buildContent(input)
   let price = document.getElementById("price");
   let img = document.getElementById("contentImg");
 
-  let url = "/acme/acme/js/acme.json";
+  let url = "/acme/js/acme.json";
     
     fetch(url)
   .then(function(response) {
